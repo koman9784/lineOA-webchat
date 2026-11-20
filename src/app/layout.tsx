@@ -4,7 +4,7 @@ import "./globals.css";
 import QueryProvider from "@/providers/QueryProvider";
 
 export const metadata: Metadata = {
-  title: "LINE OA Web Chat",
+  title: "LINE Web Chat",
   description: "LINE Official Account Chat Dashboard",
 };
 
