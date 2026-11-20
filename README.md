@@ -20,6 +20,19 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Realtime connection lifecycle
+
+Chat consumers share one Ably client. After the last connection subscriber
+unsubscribes, closure is deferred to a microtask so React Strict Mode's immediate
+resubscription can reuse the client. Channel subscription failures are logged
+instead of becoming unhandled promise rejections.
+
+Run the connection lifecycle regression tests with Node.js 24:
+
+```bash
+node --experimental-test-module-mocks --test src/lib/ably.test.mjs
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
