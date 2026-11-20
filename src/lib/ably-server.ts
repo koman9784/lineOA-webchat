@@ -1,5 +1,6 @@
+
 import "server-only";
-import Ably from "ably";
+import { createHttpClient } from "@ably/pubsub-server";
 
 const apiKey = process.env.ABLY_API_KEY;
 
@@ -7,7 +8,7 @@ if (!apiKey) {
   throw new Error("Missing ABLY_API_KEY");
 }
 
-export const ablyServer = new Ably.Rest({
+export const ablyServer = createHttpClient({
   key: apiKey,
 });
 
