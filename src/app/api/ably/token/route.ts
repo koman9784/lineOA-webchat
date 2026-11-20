@@ -5,6 +5,9 @@ export async function GET() {
     try {
         const tokenRequest =
             await ablyServer.auth.createTokenRequest({
+                // เป็น ID ของ Web Chat ไม่ใช่ระบบ Login
+                clientId: "line-oa-webchat-admin",
+
                 capability: JSON.stringify({
                     "line-chat": ["subscribe"],
                 }),
