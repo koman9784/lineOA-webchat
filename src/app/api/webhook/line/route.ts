@@ -4,8 +4,6 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import { chatChannel } from "@/lib/ably-server";
 import { getLineProfile } from "@/lib/line-server";
 
-export const runtime = "nodejs";
-
 function verifySignature(
     body: string,
     signature: string | null
